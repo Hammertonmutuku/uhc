@@ -164,11 +164,7 @@ use App\Http\Controllers\PaymentGatewayCredentialController;
 Route::get('/', function () {
     return redirect(route('login'));
 });
-Route::get('/clear-cache', function() {
-    $exitCode = Artisan::call('cache:clear');
-    $exitCode = Artisan::call('config:cache');
-    return 'DONE'; //Return anything
-});
+
 
 Route::get('/invitation/{code}', [RegisterController::class, 'invitation'])->name('invitation');
 Route::post('/invitation/accept-invite', [RegisterController::class, 'acceptInvite'])->name('accept_invite');
